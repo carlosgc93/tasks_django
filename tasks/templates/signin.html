@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 text-center" >
+            <h1>Inicar Sesion</h1>
+            {{ error }}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-primary"  type="submit">Inciar!</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock%}
