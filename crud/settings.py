@@ -86,7 +86,10 @@ WSGI_APPLICATION = 'crud.wsgi.application'
 #    'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost/postgres', conn_max_age=600)
 #}
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@localhost/postgres',
+        conn_max_age=600
+    )
 }
 
 # Password validation
@@ -125,6 +128,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# Following settings only make sense on production and may break development environments.
 if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
